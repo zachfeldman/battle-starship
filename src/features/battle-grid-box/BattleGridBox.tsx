@@ -16,7 +16,11 @@ interface BattleGridBoxProps {
 
 function calculateHitState(props: BattleGridBoxProps, hitState: string[], shipState: string[]){
   const coordinate = 'ABCDEFG'.split('')[props.cellValue]+props.numberGridValue
+
+  const explosion = new Audio('/explosion.mp3');
+
   if(shipState.indexOf(coordinate) !== -1 && hitState.indexOf(coordinate) !== -1){
+    explosion.play()
     return <td key={props.cellKey} className='battleGridBox hit'><img src='dragon-on-fire.png' alt='HIT' width='50px' className='dragonHit'/></td>
   }else if(shipState.indexOf(coordinate) !== -1){
     return <td key={props.cellKey} className='battleGridBox'></td>
