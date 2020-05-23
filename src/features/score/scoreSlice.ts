@@ -2,24 +2,28 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 import { allCoordinates } from '../../battleGridSetup'
 
-type Dictionary = { [index: string]: string }
 
-interface BattleGridBoxState {
+interface ScoreState {
+  hits: string[],
+  ships: string[],
+  currentCoordinate: string,
   status: {[characterName: string]: string},
 }
+
 
 let allCoordinatesSetup: {[characterName: string]: string} = {}
 
 allCoordinates.forEach((el, index) => allCoordinatesSetup[el] = 'clean' )
 
-console.log(allCoordinatesSetup)
-
-const initialState: BattleGridBoxState = {
+const initialState: ScoreState = {
+  hits: [],
+  ships: ['B2', 'E3'],
+  currentCoordinate: '',
   status: allCoordinatesSetup,
 };
 
-export const BattleGridSlice = createSlice({
-  name: 'battleGridSlice',
+export const fireControlSlice = createSlice({
+  name: 'fireControl',
   initialState,
   reducers: {
     // increment: state => {
@@ -33,27 +37,28 @@ export const BattleGridSlice = createSlice({
     //   state.value -= 1;
     // },
     // Use the PayloadAction type to declare the contents of `action.payload`
-    // fire: (state, action: PayloadAction<string>) => {
-    //   state.hits = [...state.hits, action.payload]
-    // },
+    fire: (state, action: PayloadAction<string>) => {
+      state.hits = [...state.hits, action.payload]
+      let newStatus = state.status
+      if(state.ships.indexOf(action.payload) !== -1){
+        const explosion = new Audio('/explosion.mp3');
+        setTimeout(function(){
+          explosion.play()
+        }, 500)
+        newStatus[action.payload] = 'ship-hit'
+      }else{
+        newStatus[action.payload] = 'hit'
+      }
 
-    checkHit: (state, action: PayloadAction<string>) => {
-      // state.hits = [...state.hits, action.payload]
-      // console.log(state)
-      // console.log(action.payload)
-      return state
+      state.status = newStatus
     },
-
-    fireGrid: (state, action: PayloadAction<string>) => {
-      console.log('battlefire')
-    }
 
   },
 });
 
 // export const { increment, decrement, incrementByAmount } = counterSlice.actions;
 
-export const { checkHit, fireGrid } = BattleGridSlice.actions;
+export const { fire } = fireControlSlice.actions;
 
 
 // The function below is called a thunk and allows us to perform async logic. It
@@ -71,8 +76,7 @@ export const { checkHit, fireGrid } = BattleGridSlice.actions;
 // in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
 // export const selectHits = (state: RootState) => state.fireControl.hits;
 // export const selectCurrentCoordinate = (state: RootState) => state.fireControl.currentCoordinate;
-// export const selectHits = (state: RootState) => state.fireControl.hits;
-// export const selectShips = (state: RootState) => state.fireControl.ships;
-export const selectStatus = (state: RootState) => state.fireControl.status;
+export const selectHits = (state: RootState) => Object.values(state.fireControl.status).filter((v)=> v=="ship-hit").length;
+export const selectSinks = (state: RootState) => state.fireControl.currentCoordinate;
 
-export default BattleGridSlice.reducer;
+export default fireControlSlice.reducer;

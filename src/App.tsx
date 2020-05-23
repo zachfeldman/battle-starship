@@ -1,5 +1,5 @@
 import React from 'react';
-import { Counter } from './features/Counter';
+import { Score } from './features/score/Score';
 import './App.css';
 
 import { FireControl } from './features/fire-control/FireControl'
@@ -7,11 +7,10 @@ import { FireControl } from './features/fire-control/FireControl'
 import { LetterBox } from './features/LetterBox'
 import { NumberBox } from './features/NumberBox'
 import { BattleGridBox } from './features/battle-grid-box/BattleGridBox'
+import { letters, numbers } from './battleGridSetup'
 
 
 function App() {
-  const letters = 'ABCDEFG'.split('')
-  const numbers = [...Array(7).keys()];
 
   return (
 
@@ -22,8 +21,8 @@ function App() {
         <h2>BattleStarship</h2>
       </div>
       <div className='left'>
-        <Counter title={'Hit'} count={5}/>
-        <Counter title={'Sunk'} count={5}/>
+        <Score title={'Hit'} count={5}/>
+        <Score title={'Sunk'} count={5}/>
       </div>
       <div className='left'>
         <table>

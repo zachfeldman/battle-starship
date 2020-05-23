@@ -1,16 +1,38 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
+import { allCoordinates } from '../../battleGridSetup'
+
 
 interface FireControlState {
   hits: string[],
   ships: string[],
   currentCoordinate: string,
+  status: {[characterName: string]: string},
 }
+
+
+let allCoordinatesSetup: {[characterName: string]: string} = {}
+
+allCoordinates.forEach((el, index) => allCoordinatesSetup[el] = 'clean' )
+
+function getRandomSubarray(arr: string[], size: number) {
+    var shuffled = arr.slice(0), i = arr.length, temp, index;
+    while (i--) {
+        index = Math.floor((i + 1) * Math.random());
+        temp = shuffled[index];
+        shuffled[index] = shuffled[i];
+        shuffled[i] = temp;
+    }
+    return shuffled.slice(0, size);
+}
+
+const initialShips = getRandomSubarray(allCoordinates, 10)
 
 const initialState: FireControlState = {
   hits: [],
-  ships: ['B2', 'E3'],
-  currentCoordinate: ''
+  ships: initialShips,
+  currentCoordinate: '',
+  status: allCoordinatesSetup,
 };
 
 export const fireControlSlice = createSlice({
@@ -30,6 +52,18 @@ export const fireControlSlice = createSlice({
     // Use the PayloadAction type to declare the contents of `action.payload`
     fire: (state, action: PayloadAction<string>) => {
       state.hits = [...state.hits, action.payload]
+      let newStatus = state.status
+      if(state.ships.indexOf(action.payload) !== -1){
+        const explosion = new Audio('/explosion.mp3');
+        setTimeout(function(){
+          explosion.play()
+        }, 500)
+        newStatus[action.payload] = 'ship-hit'
+      }else{
+        newStatus[action.payload] = 'hit'
+      }
+
+      state.status = newStatus
     },
 
   },

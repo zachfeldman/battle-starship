@@ -2,8 +2,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import {
-  selectHits,
-  selectShips
+  // selectHits,
+  // selectShips
+  selectStatus
 } from './battleGridSlice';
 // import styles from './Counter.module.css';
 
@@ -14,17 +15,15 @@ interface BattleGridBoxProps {
   numberGridValue: number,
 }
 
-function calculateHitState(props: BattleGridBoxProps, hitState: string[], shipState: string[]){
+function calculateHitState(props: BattleGridBoxProps, status: { [index: string]: string }){
   const coordinate = 'ABCDEFG'.split('')[props.cellValue]+props.numberGridValue
+  const battleStatus = status[coordinate]
 
-  const explosion = new Audio('/explosion.mp3');
-
-  if(shipState.indexOf(coordinate) !== -1 && hitState.indexOf(coordinate) !== -1){
-    explosion.play()
+  if(battleStatus === 'ship-hit'){
     return <td key={props.cellKey} className='battleGridBox hit'><img src='dragon-on-fire.png' alt='HIT' width='50px' className='dragonHit'/></td>
-  }else if(shipState.indexOf(coordinate) !== -1){
+  }else if(battleStatus === 'ship'){
     return <td key={props.cellKey} className='battleGridBox'></td>
-  }else if(hitState.indexOf(coordinate) !== -1){
+  }else if(battleStatus === 'hit'){
     return <td key={props.cellKey} className='battleGridBox hit'></td>
   }else{
     return <td key={props.cellKey} className='battleGridBox'></td>
@@ -33,9 +32,10 @@ function calculateHitState(props: BattleGridBoxProps, hitState: string[], shipSt
 
 export function BattleGridBox(props: BattleGridBoxProps) {
 
-  const hitState = useSelector(selectHits);
-  const shipState = useSelector(selectShips);
+  // const hitState = useSelector(selectHits);
+  // const shipState = useSelector(selectShips);
+  const status = useSelector(selectStatus);
 
-  return calculateHitState(props, hitState, shipState)
+  return calculateHitState(props, status)
 
 }
