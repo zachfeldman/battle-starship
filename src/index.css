@@ -80,6 +80,7 @@ h2{
   background-color: gray;
   min-width: 4.25em;
   min-height: 3.5em;
+  text-align: center;
 }
 
 .counter{
@@ -136,4 +137,12 @@ h2{
   margin-left: 2em;
   position: relative;
   top: -4px;
+}
+
+.dragonHit{
+  vertical-align: middle;
+}
+
+.battleGridBox.hit{
+  background-color: red;
 }
