@@ -2,10 +2,11 @@ import React from 'react';
 import { Counter } from './features/Counter';
 import './App.css';
 
-import { FireControl } from './features/FireControl'
+import { FireControl } from './features/fire-control/FireControl'
+
 import { LetterBox } from './features/LetterBox'
 import { NumberBox } from './features/NumberBox'
-import { BattleGridBox } from './features/BattleGridBox'
+import { BattleGridBox } from './features/battle-grid-box/BattleGridBox'
 
 
 function App() {
@@ -38,7 +39,7 @@ function App() {
               return <tr>
                 <NumberBox cellValue={number_value+1} cellKey={number_index}/>
                 {numbers.map((space_value, space_index) => {
-                  return <BattleGridBox cellValue={space_value} cellKey={space_index}/>
+                  return <BattleGridBox cellValue={space_value} cellKey={space_index} numberGridValue={number_value+1}/>
                 })}
               </tr>
             })}
