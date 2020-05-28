@@ -53,6 +53,15 @@ export const fireControlSlice = createSlice({
     fire: (state, action: PayloadAction<string>) => {
       state.hits = [...state.hits, action.payload]
       let newStatus = state.status
+      const laser = new Audio('/laser-shot.mp3');
+      const access_denied = new Audio('/access-denied.mp3');
+
+      if(state.hits.filter((hit)=>hit === action.payload).length === 1){
+        laser.play();
+      }else if(state.hits.filter((hit)=>hit === action.payload).length > 1){
+        access_denied.play()
+      }
+
       if(state.ships.indexOf(action.payload) !== -1){
         const explosion = new Audio('/explosion.mp3');
         setTimeout(function(){

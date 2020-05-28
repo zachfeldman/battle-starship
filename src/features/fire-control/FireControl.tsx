@@ -10,8 +10,6 @@ export function FireControl() {
   const dispatch = useDispatch();
   const [coordinate, setCoordinate] = useState('C3');
 
-  const laser = new Audio('/laser-shot.mp3');
-
   return (
     <div className='fireControl'>
       <img src='crosshairs.png' width="100" alt='crosshairs'/>
@@ -22,7 +20,7 @@ export function FireControl() {
         onChange={e => setCoordinate(e.target.value)}
       />
       <button
-        onClick={() => { laser.play(); dispatch(fire(coordinate))}}
+        onClick={() => { dispatch(fire(coordinate))}}
       >
         FIRE LASER
       </button>
