@@ -146,3 +146,8 @@ h2{
 .battleGridBox.hit{
   background-color: red;
 }
+
+.instructions{
+  float: left;
+  width: 200px;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Score } from './features/score/Score';
+import { Timer } from './features/timer/Timer';
 import './App.css';
 
 import { FireControl } from './features/fire-control/FireControl'
@@ -8,7 +9,7 @@ import { LetterBox } from './features/LetterBox'
 import { NumberBox } from './features/NumberBox'
 import { BattleGridBox } from './features/battle-grid-box/BattleGridBox'
 import { letters, numbers } from './battleGridSetup'
-
+import { Instructions } from './features/Instructions'
 
 function App() {
 
@@ -21,8 +22,9 @@ function App() {
         <h2>BattleStarship</h2>
       </div>
       <div className='left'>
-        <Score title={'Hit'} count={5}/>
+        <Timer countdown={100}/>
         <Score title={'Sunk'} count={5}/>
+        <Instructions />
       </div>
       <div className='left'>
         <table>
