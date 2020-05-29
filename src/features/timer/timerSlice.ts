@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 import { allCoordinates } from '../../battleGridSetup'
 
-const seconds_for_game = 25
+const seconds_for_game = 50
 
 interface TimerState {
   currentSecond: number
