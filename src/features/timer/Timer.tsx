@@ -4,7 +4,10 @@ import {
   selectCurrentSecond,
   decrementTimer
 } from './timerSlice';
-
+import { updateHighScores } from '../high-scores/highScoresSlice'
+import {
+  selectHits
+} from '../score/scoreSlice';
 // import styles from './Counter.module.css';
 
 interface TimerProps {
@@ -16,6 +19,7 @@ interface TimerProps {
 export function Timer(props: TimerProps){
 
   const currentSecond = useSelector(selectCurrentSecond);
+  const currentScore = useSelector(selectHits);
   const dispatch = useDispatch();
   // const currentSecond = useState(props.countdown)
   // const dispatch = useDispatch();
@@ -44,14 +48,10 @@ export function Timer(props: TimerProps){
  // render(){
   // const currentSecond = useState(props.countdown)
   useEffect(() => {
-
-    // console.log(decrementTimer)
-    // console.log('test')
-    // console.log(dispatch)
-    // dispatch(decrementTimer())
-    // dispatch(decrementTimer())
-    // dispatch(startTimer())
     setTimeout(()=>{dispatch(decrementTimer())}, 1000)
+    if(currentSecond === 0){
+      dispatch(updateHighScores(currentScore))
+    }
   });
 
   return (

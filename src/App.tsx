@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Score } from './features/score/Score';
 import { Timer } from './features/timer/Timer';
 import './App.css';
@@ -8,11 +9,25 @@ import { FireControl } from './features/fire-control/FireControl'
 import { LetterBox } from './features/LetterBox'
 import { NumberBox } from './features/NumberBox'
 import { BattleGridBox } from './features/battle-grid-box/BattleGridBox'
-import { letters, numbers } from './battleGridSetup'
+// import { letters, numbers } from './battleGridSetup'
 import { Instructions } from './features/Instructions'
+import { HighScores } from './features/high-scores/HighScores'
+import {
+  // selectHits,
+  // selectShips
+  selectStatus
+} from './features/battle-grid-box/battleGridSlice';
+
+  // const hitState = useSelector(selectHits);
+  // const shipState = useSelector(selectShips);
+
 
 function App() {
-
+  const status = useSelector(selectStatus);
+  console.log(status)
+  const letters = Array.from(new Set(Object.keys(status).map((k,v)=> k[0])))
+  const numbers = Array.from(new Set(Object.keys(status).map((k,v)=> parseInt(k.slice(-1))-1)))
+  // console.log(numbers)
   return (
 
     // return <h1>Hello from {this.props.compiler} and {this.props.framework}!</h1>;
@@ -40,16 +55,17 @@ function App() {
               return <tr>
                 <NumberBox cellValue={number_value+1} cellKey={number_index}/>
                 {numbers.map((space_value, space_index) => {
-                  return <BattleGridBox cellValue={space_value} cellKey={space_index} numberGridValue={number_value+1}/>
+                  return <BattleGridBox cellValue={space_value} cellKey={space_index} numberGridValue={number_value+1} status={status}/>
                 })}
               </tr>
             })}
           </tbody>
-      </table>
-      <FireControl/>
-    </div>
-    <div className='clear'>
-    </div>
+        </table>
+        <FireControl/>
+      </div>
+      <div className='clear'>
+      </div>
+      <HighScores/>
     </div>
     // <div className="App">
     //   <header className="App-header">

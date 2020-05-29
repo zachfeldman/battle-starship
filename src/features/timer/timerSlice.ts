@@ -2,16 +2,17 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 import { allCoordinates } from '../../battleGridSetup'
 
+const seconds_for_game = 25
 
 interface TimerState {
   currentSecond: number
 }
 
 const initialState: TimerState = {
-  currentSecond: 100
+  currentSecond: seconds_for_game
 };
 
-export const fireControlSlice = createSlice({
+export const timerSlice = createSlice({
   name: 'timer',
   initialState,
   reducers: {
@@ -23,9 +24,12 @@ export const fireControlSlice = createSlice({
     //   state.value += 1;
     // },
     decrementTimer: state => {
-      console.log('test')
-      console.log(state.currentSecond)
-      state.currentSecond -= 1;
+      if(state.currentSecond > 0){
+        state.currentSecond -= 1;
+      }
+    },
+    resetTimer: state => {
+      state.currentSecond = seconds_for_game
     },
     // Use the PayloadAction type to declare the contents of `action.payload`
     // fire: (state, action: PayloadAction<string>) => {
@@ -49,7 +53,7 @@ export const fireControlSlice = createSlice({
 
 // export const { increment, decrement, incrementByAmount } = counterSlice.actions;
 
-export const { decrementTimer } = fireControlSlice.actions;
+export const { decrementTimer, resetTimer } = timerSlice.actions;
 
 
 // The function below is called a thunk and allows us to perform async logic. It
@@ -69,4 +73,4 @@ export const { decrementTimer } = fireControlSlice.actions;
 // export const selectCurrentCoordinate = (state: RootState) => state.fireControl.currentCoordinate;
 export const selectCurrentSecond = (state: RootState) => state.timer.currentSecond;
 
-export default fireControlSlice.reducer;
+export default timerSlice.reducer;

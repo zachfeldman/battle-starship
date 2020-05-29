@@ -53,13 +53,14 @@ export const fireControlSlice = createSlice({
     fire: (state, action: PayloadAction<string>) => {
       state.hits = [...state.hits, action.payload]
       let newStatus = state.status
+
       const laser = new Audio('/laser-shot.mp3');
       const access_denied = new Audio('/access-denied.mp3');
 
-      if(state.hits.filter((hit)=>hit === action.payload).length === 1){
-        laser.play();
-      }else if(state.hits.filter((hit)=>hit === action.payload).length > 1){
+      if(allCoordinates.indexOf(action.payload) === -1 || state.hits.filter((hit)=>hit === action.payload).length > 1){
         access_denied.play()
+      }else if(state.hits.filter((hit)=>hit === action.payload).length === 1){
+        laser.play();
       }
 
       if(state.ships.indexOf(action.payload) !== -1){
@@ -75,12 +76,17 @@ export const fireControlSlice = createSlice({
       state.status = newStatus
     },
 
-  },
+    resetFireControlState: state => {
+      state.status = allCoordinatesSetup
+      state.ships = initialShips
+      state.hits = []
+    },
+  }
 });
 
 // export const { increment, decrement, incrementByAmount } = counterSlice.actions;
 
-export const { fire } = fireControlSlice.actions;
+export const { fire, resetFireControlState } = fireControlSlice.actions;
 
 
 // The function below is called a thunk and allows us to perform async logic. It
