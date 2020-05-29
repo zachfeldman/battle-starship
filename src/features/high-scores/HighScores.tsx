@@ -16,13 +16,16 @@ export function HighScores() {
   const displayedHighScores = useSelector(highScores);
   const dispatch = useDispatch()
 
+  const topFiveHighScores = displayedHighScores.slice(0,5)
+  console.log(topFiveHighScores)
+
   return shouldDisplayHighScore ? (
     <div className='high-score'>
       <div className='inner'>
         <h1>High Scores</h1>
         <table>
           <tbody>
-            {Object.entries(displayedHighScores).map((key: [string, number], index: number)=>{
+            {topFiveHighScores.map((key: [string, number], index: number)=>{
               return <tr>
                 <td>
                   {key[0]}

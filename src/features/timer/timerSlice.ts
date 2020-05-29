@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 
-export const secondsForGame = 30
+export const secondsForGame = 20
 
 interface TimerState {
   initialSecond: number,
