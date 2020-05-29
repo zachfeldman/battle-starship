@@ -1,3 +1,10 @@
+# Battlestarship
+
+A little battleship inspired game in Typescript/ReactJS/Redux. Available at [https://battlestarship.app](https://battlestarship.app).
+
+create-react-app README follows to help get the project started on your dev machine.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
 ## Available Scripts
