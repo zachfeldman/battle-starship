@@ -34,6 +34,9 @@ body {
   background-color: black;
   color: white;
   font-family: DINPro-Bold;
+  background-image: url('/starfield.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #wrapper{
@@ -81,6 +84,7 @@ h2{
   min-width: 4.25em;
   min-height: 3.5em;
   text-align: center;
+  opacity: 0.6;
 }
 
 .counter{
@@ -145,6 +149,12 @@ h2{
 
 .battleGridBox.hit{
   background-color: red;
+  opacity: 0.4;
+}
+
+.battleGridBox.hit.ship{
+  background-color: red;
+  opacity: 0.8;
 }
 
 .instructions{

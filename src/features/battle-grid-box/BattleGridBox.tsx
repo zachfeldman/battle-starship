@@ -20,7 +20,7 @@ function calculateHitState(props: BattleGridBoxProps, status: { [index: string]:
   const battleStatus = status[coordinate]
 
   if(battleStatus === 'ship-hit'){
-    return <td key={props.cellKey} className='battleGridBox hit'><img src='dragon-on-fire.png' alt='HIT' width='50px' className='dragonHit'/></td>
+    return <td key={props.cellKey} className='battleGridBox hit ship'><img src='starship-hopper.png' alt='HIT' width='60px' className='dragonHit'/></td>
   }else if(battleStatus === 'ship'){
     return <td key={props.cellKey} className='battleGridBox'></td>
   }else if(battleStatus === 'hit'){
