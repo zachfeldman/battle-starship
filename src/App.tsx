@@ -11,21 +11,11 @@ import { BattleGridBox } from './features/battle-grid-box/BattleGridBox'
 import { letters, numbers } from './battleGridSetup'
 import { Instructions } from './features/Instructions'
 import { HighScores } from './features/high-scores/HighScores'
-import {
-  // selectHits,
-  // selectShips
-  selectStatus
-} from './features/battle-grid-box/battleGridSlice';
-
-  // const hitState = useSelector(selectHits);
-  // const shipState = useSelector(selectShips);
 
 
 function App() {
 
   return (
-
-    // return <h1>Hello from {this.props.compiler} and {this.props.framework}!</h1>;
     <div id='wrapper'>
       <div className='topMenu'>
         <img src='spacex-logo.jpg' width="200" alt='SpaceX'/>
@@ -62,53 +52,6 @@ function App() {
       </div>
       <HighScores/>
     </div>
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <Counter />
-    //     <p>
-    //       Edit <code>src/App.tsx</code> and save to reload.
-    //     </p>
-    //     <span>
-    //       <span>Learn </span>
-    //       <a
-    //         className="App-link"
-    //         href="https://reactjs.org/"
-    //         target="_blank"
-    //         rel="noopener noreferrer"
-    //       >
-    //         React
-    //       </a>
-    //       <span>, </span>
-    //       <a
-    //         className="App-link"
-    //         href="https://redux.js.org/"
-    //         target="_blank"
-    //         rel="noopener noreferrer"
-    //       >
-    //         Redux
-    //       </a>
-    //       <span>, </span>
-    //       <a
-    //         className="App-link"
-    //         href="https://redux-toolkit.js.org/"
-    //         target="_blank"
-    //         rel="noopener noreferrer"
-    //       >
-    //         Redux Toolkit
-    //       </a>
-    //       ,<span> and </span>
-    //       <a
-    //         className="App-link"
-    //         href="https://react-redux.js.org/"
-    //         target="_blank"
-    //         rel="noopener noreferrer"
-    //       >
-    //         React Redux
-    //       </a>
-    //     </span>
-    //   </header>
-    // </div>
   );
 }
 

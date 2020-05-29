@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   displayHighScore,
@@ -10,15 +10,11 @@ import {
 import {
   resetTimer
 } from '../timer/timerSlice';
-import styles from './Counter.module.css';
 
 export function HighScores() {
-  // const shouldDisplayHighScore = true
   const shouldDisplayHighScore = useSelector(displayHighScore);
   const displayedHighScores = useSelector(highScores);
   const dispatch = useDispatch()
-  // const dispatch = useDispatch();
-  // const [incrementAmount, setIncrementAmount] = useState('2');
 
   return shouldDisplayHighScore ? (
     <div className='high-score'>

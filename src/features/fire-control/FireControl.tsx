@@ -3,10 +3,8 @@ import { useDispatch } from 'react-redux';
 import {
   fire
 } from './fireControlSlice';
-// import styles from './Counter.module.css';
 
 export function FireControl() {
-  // const currentCoordinate = useSelector(selectCurrentCoordinate);
   const dispatch = useDispatch();
   const [coordinate, setCoordinate] = useState('C3');
 
@@ -18,7 +16,7 @@ export function FireControl() {
         maxLength={2}
         value={coordinate}
         onChange={e => setCoordinate(e.target.value)}
-        onKeyPress={(e) => { if(e.which == 13){dispatch(fire(coordinate))}}}
+        onKeyPress={(e) => { if(e.which === 13){dispatch(fire(coordinate))}}}
       />
       <button
         onClick={() => { dispatch(fire(coordinate))}}
