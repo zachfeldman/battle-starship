@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 
-export const secondsForGame = 50
+export const secondsForGame = 30
 
 interface TimerState {
   initialSecond: number,
@@ -18,10 +18,13 @@ export const timerSlice = createSlice({
   initialState,
   reducers: {
     decrementTimer: state => {
-      state.currentSecond = secondsForGame - Math.round((Date.now() - state.initialSecond)/ 1000)
+      if(state.currentSecond > 0){
+        state.currentSecond = secondsForGame - Math.round((Date.now() - state.initialSecond)/ 1000)
+      }
     },
     resetTimer: state => {
       state.initialSecond = Date.now()
+      state.currentSecond = secondsForGame
     },
   },
 });
