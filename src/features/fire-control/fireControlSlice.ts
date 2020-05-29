@@ -40,26 +40,27 @@ export const fireControlSlice = createSlice({
   initialState,
   reducers: {
     fire: (state, action: PayloadAction<string>) => {
-      state.hits = [...state.hits, action.payload]
+      let coordinate = action.payload.toUpperCase()
+      state.hits = [...state.hits, coordinate]
       let newStatus = state.status
 
       const laser = new Audio('/laser-shot.mp3');
       const access_denied = new Audio('/access-denied.mp3');
 
-      if(allCoordinates.indexOf(action.payload) === -1 || state.hits.filter((hit)=>hit === action.payload).length > 1){
+      if(allCoordinates.indexOf(coordinate) === -1 || state.hits.filter((hit)=>hit === coordinate).length > 1){
         access_denied.play()
-      }else if(state.hits.filter((hit)=>hit === action.payload).length === 1){
+      }else if(state.hits.filter((hit)=>hit === coordinate).length === 1){
         laser.play();
       }
 
-      if(state.ships.indexOf(action.payload) !== -1){
+      if(state.ships.indexOf(coordinate) !== -1){
         const explosion = new Audio('/explosion.mp3');
         setTimeout(function(){
           explosion.play()
         }, 500)
-        newStatus[action.payload] = 'ship-hit'
+        newStatus[coordinate] = 'ship-hit'
       }else{
-        newStatus[action.payload] = 'hit'
+        newStatus[coordinate] = 'hit'
       }
 
       state.status = newStatus

@@ -4,7 +4,6 @@ import { Timer } from './features/timer/Timer';
 import './App.css';
 
 import { FireControl } from './features/fire-control/FireControl'
-
 import { LetterBox } from './features/LetterBox'
 import { NumberBox } from './features/NumberBox'
 import { BattleGridBox } from './features/battle-grid-box/BattleGridBox'
