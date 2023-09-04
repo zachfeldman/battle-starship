@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/battle-starship/static/css/main.176ec3c9.chunk.css",
+    "main.js": "/battle-starship/static/js/main.4686145c.chunk.js",
+    "main.js.map": "/battle-starship/static/js/main.4686145c.chunk.js.map",
+    "runtime-main.js": "/battle-starship/static/js/runtime-main.a375d35a.js",
+    "runtime-main.js.map": "/battle-starship/static/js/runtime-main.a375d35a.js.map",
+    "static/js/2.66d98736.chunk.js": "/battle-starship/static/js/2.66d98736.chunk.js",
+    "static/js/2.66d98736.chunk.js.map": "/battle-starship/static/js/2.66d98736.chunk.js.map",
+    "index.html": "/battle-starship/index.html",
+    "precache-manifest.54f6ada4378ea918b77f36b1bfeeab03.js": "/battle-starship/precache-manifest.54f6ada4378ea918b77f36b1bfeeab03.js",
+    "service-worker.js": "/battle-starship/service-worker.js",
+    "static/css/main.176ec3c9.chunk.css.map": "/battle-starship/static/css/main.176ec3c9.chunk.css.map",
+    "static/js/2.66d98736.chunk.js.LICENSE.txt": "/battle-starship/static/js/2.66d98736.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a375d35a.js",
+    "static/js/2.66d98736.chunk.js",
+    "static/css/main.176ec3c9.chunk.css",
+    "static/js/main.4686145c.chunk.js"
+  ]
+}
