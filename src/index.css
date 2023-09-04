@@ -1,6 +1,6 @@
 @font-face {
   font-family: DINPro-Medium;
-  src: url(/fonts/DINPro-Medium.woff) format("woff");
+  src: url(/battle-starship/fonts/DINPro-Medium.woff) format("woff");
   font-style: normal;
   font-weight: 400;
   font-display: block
@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: DINPro-Light;
-  src: url(/fonts/DINPro-Light.woff) format("woff");
+  src: url(/battle-starship/fonts/DINPro-Light.woff) format("woff");
   font-style: normal;
   font-weight: 400;
   font-display: block
@@ -16,7 +16,7 @@
 
 @font-face {
   font-family: DINPro-Bold;
-  src: url(/fonts/DINPro-Bold.woff) format("woff");
+  src: url(/battle-starship/fonts/DINPro-Bold.woff) format("woff");
   font-style: normal;
   font-weight: 400;
   font-display: block
@@ -24,7 +24,7 @@
 
 @font-face {
   font-family: DINPro-Regular;
-  src: url(/fonts/DINPro.woff) format("woff");
+  src: url(/battle-starship/fonts/DINPro.woff) format("woff");
   font-style: normal;
   font-weight: 400;
   font-display: block
@@ -34,7 +34,7 @@ body {
   background-color: black;
   color: white;
   font-family: DINPro-Bold;
-  background-image: url('/starfield.jpg');
+  background-image: url('/battle-starship/starfield.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }

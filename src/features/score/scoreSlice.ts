@@ -30,7 +30,7 @@ export const fireControlSlice = createSlice({
       state.hits = [...state.hits, action.payload]
       let newStatus = state.status
       if(state.ships.indexOf(action.payload) !== -1){
-        const explosion = new Audio('/explosion.mp3');
+        const explosion = new Audio('/battle-starship/explosion.mp3');
         setTimeout(function(){
           explosion.play()
         }, 500)

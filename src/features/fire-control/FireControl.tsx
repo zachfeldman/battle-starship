@@ -24,7 +24,7 @@ export function FireControl() {
         FIRE LASER
       </button>
       <audio className="audio-element">
-        <source src="/laser-shot.mp3"></source>
+        <source src="/battle-starship/laser-shot.mp3"></source>
       </audio>
     </div>
   );

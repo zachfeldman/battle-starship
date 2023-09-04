@@ -44,8 +44,8 @@ export const fireControlSlice = createSlice({
       state.hits = [...state.hits, coordinate]
       let newStatus = state.status
 
-      const laser = new Audio('/laser-shot.mp3');
-      const access_denied = new Audio('/access-denied.mp3');
+      const laser = new Audio('/battle-starship/laser-shot.mp3');
+      const access_denied = new Audio('/battle-starship/access-denied.mp3');
 
       if(allCoordinates.indexOf(coordinate) === -1 || state.hits.filter((hit)=>hit === coordinate).length > 1){
         access_denied.play()
@@ -54,7 +54,7 @@ export const fireControlSlice = createSlice({
       }
 
       if(state.ships.indexOf(coordinate) !== -1){
-        const explosion = new Audio('/explosion.mp3');
+        const explosion = new Audio('/battle-starship/explosion.mp3');
         setTimeout(function(){
           explosion.play()
         }, 500)
