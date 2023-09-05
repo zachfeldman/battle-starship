@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3e119222d731592117629816f1194fff",
+    "revision": "f1803415a33d6ee479c9ab66c8621ce7",
     "url": "/battle-starship/index.html"
   },
   {
-    "revision": "3dc6cc0b1f814eef492a",
+    "revision": "dc6fb4490445187a5f66",
     "url": "/battle-starship/static/css/main.bb88e096.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/battle-starship/static/js/2.66d98736.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3dc6cc0b1f814eef492a",
-    "url": "/battle-starship/static/js/main.05116209.chunk.js"
+    "revision": "dc6fb4490445187a5f66",
+    "url": "/battle-starship/static/js/main.ac7674c6.chunk.js"
   },
   {
     "revision": "a4e5ce541d88ba7d8ec6",

@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/battle-starship/static/css/main.bb88e096.chunk.css",
-    "main.js": "/battle-starship/static/js/main.05116209.chunk.js",
-    "main.js.map": "/battle-starship/static/js/main.05116209.chunk.js.map",
+    "main.js": "/battle-starship/static/js/main.ac7674c6.chunk.js",
+    "main.js.map": "/battle-starship/static/js/main.ac7674c6.chunk.js.map",
     "runtime-main.js": "/battle-starship/static/js/runtime-main.a375d35a.js",
     "runtime-main.js.map": "/battle-starship/static/js/runtime-main.a375d35a.js.map",
     "static/js/2.66d98736.chunk.js": "/battle-starship/static/js/2.66d98736.chunk.js",
     "static/js/2.66d98736.chunk.js.map": "/battle-starship/static/js/2.66d98736.chunk.js.map",
     "index.html": "/battle-starship/index.html",
-    "precache-manifest.8a3a0dfb841930c5145dd514da472802.js": "/battle-starship/precache-manifest.8a3a0dfb841930c5145dd514da472802.js",
+    "precache-manifest.1cd81aa6794c6435a483b7a3ef0b0340.js": "/battle-starship/precache-manifest.1cd81aa6794c6435a483b7a3ef0b0340.js",
     "service-worker.js": "/battle-starship/service-worker.js",
     "static/css/main.bb88e096.chunk.css.map": "/battle-starship/static/css/main.bb88e096.chunk.css.map",
     "static/js/2.66d98736.chunk.js.LICENSE.txt": "/battle-starship/static/js/2.66d98736.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.a375d35a.js",
     "static/js/2.66d98736.chunk.js",
     "static/css/main.bb88e096.chunk.css",
-    "static/js/main.05116209.chunk.js"
+    "static/js/main.ac7674c6.chunk.js"
   ]
 }
